@@ -10,9 +10,20 @@
 
 body {
     font-family: "Helvetica Neue", Arial, sans-serif;
-    background: #0b1c2d;
     color: white;
+    background-image: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    z-index: -1;
+}
+
 
 /* HEADER */
 header {
@@ -54,12 +65,28 @@ header {
 }
 
 .partner-card {
-    background: rgba(255,255,255,0.08);
-    border-radius: 18px;
-    padding: 40px 30px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(6px);
+    border-radius: 20px;
+    padding: 50px 35px;
     text-align: center;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.45);
 }
+
+
+.partner-card h2 {
+    margin-bottom: 18px;
+}
+
+.partner-card p {
+    margin-bottom: 30px;
+    color: #d0d7e0;
+}
+
+.partner-card .btn {
+    margin-top: 24px;
+}
+
 
 /* AI */
 .ai-section {

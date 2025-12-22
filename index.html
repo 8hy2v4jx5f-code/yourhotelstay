@@ -3,16 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YourHotelStay</title>
+<title>YourHotelStay | Luxury Hotel Deals</title>
+
 <style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
-    margin: 0;
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    background: #0b1c2d;
-    color: white;
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    color: #222;
 }
 
-/* Header */
+/* HEADER */
 header {
     background: #0b1c2d;
     color: white;
@@ -20,22 +22,22 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
 }
 
-header .logo {
+.logo {
     display: flex;
     align-items: center;
     gap: 14px;
 }
 
-header .buttons {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
+.logo-svg { width: 48px; height: 48px; }
+
+.logo-text {
+    font-size: 20px;
+    font-weight: 700;
 }
 
+/* BUTTON */
 .btn {
     background: white;
     color: #0b1c2d;
@@ -43,67 +45,95 @@ header .buttons {
     text-decoration: none;
     font-weight: bold;
     border-radius: 6px;
-    text-align: center;
+    margin-left: 10px;
 }
 
-/* Mobile: stack buttons under logo */
-@media (max-width: 768px) {
-    header { flex-direction: column; align-items: center; }
-    header .buttons { flex-direction: column; width: 100%; gap: 12px; margin-top: 15px; }
-    .btn { width: 80%; text-align: center; }
-}
-
-/* Hero Slider */
-.hero-slider {
+/* HERO */
+.hero {
     position: relative;
-    height: 80vh;
+    height: 70vh;
     overflow: hidden;
 }
 
-.hero-slider .slide {
+.hero img {
     position: absolute;
-    top: 0; left: 0;
     width: 100%;
-    height: 100%;
+    height: 70vh;
+    object-fit: cover;
     opacity: 0;
-    transition: opacity 1.5s ease-in-out;
+    animation: slide 18s infinite;
 }
 
-.hero-slider .slide img {
+.hero img:nth-child(1) { animation-delay: 0s; }
+.hero img:nth-child(2) { animation-delay: 6s; }
+.hero img:nth-child(3) { animation-delay: 12s; }
+
+@keyframes slide {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    30% { opacity: 1; }
+    40% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+.hero-text {
+    position: absolute;
+    bottom: 25%;
+    left: 8%;
+    max-width: 520px;
+    background: rgba(0,0,0,0.55);
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.hero-text h1 { font-size: 42px; margin-bottom: 10px; }
+.hero-text p { margin-bottom: 15px; }
+
+/* DEALS */
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 60px 20px;
+}
+
+.deals {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.card img {
     width: 100%;
-    height: 100%;
+    height: 200px;
     object-fit: cover;
 }
 
-.hero-slider .slide.active { opacity: 1; }
+.card-content { padding: 20px; }
 
-/* Dark overlay */
-.hero-slider::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.45);
-    z-index: 0;
-}
+.location { color: #777; margin-bottom: 8px; }
 
-/* Hero text */
-.hero-text {
-    position: absolute;
-    z-index: 1;
-    color: white;
+.price .old { text-decoration: line-through; color: #999; }
+.price .new { font-size: 20px; font-weight: bold; color: #0b1c2d; }
+
+/* FOOTER */
+footer {
+    background: #111;
+    color: #ccc;
     text-align: center;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 0 20px;
+    padding: 35px 20px;
 }
+</style>
+</head>
 
-/* Mobile hero text */
-@media (max-width: 768px) {
-    .hero-slider { height: 60vh; }
-    .hero-text h1 { font-size: 26px; }
-    .hero-text p { font-size: 16px; }
-}
-
+<body>
 
 <header>
     <div class="logo">
@@ -117,46 +147,74 @@ header .buttons {
         </svg>
         <span class="logo-text">YourHotelStay</span>
     </div>
-    <div class="buttons">
+
+    <div>
         <a class="btn" href="browse.html">Browse Hotels</a>
         <a class="btn" target="_blank"
-           href="https://wa.me/YOURNUMBER?text=Welcome%20to%20Your%20Hotel%20Stay🏨%0A%0AIf%20you%20could%20provide%20us%20with%20the%20following…%0A-Location%0A-Dates%20(DD/MM/YYYY)%20-%20(DD/MM/YYYY)%0A-Number%20of%20Guests%0A%0AWe%20will%20be%20more%20than%20happy%20to%20help%20in%20the%20way%20which%20suits%20your%20needs.%0AHere’s%20to%20cheap%20hotels💸">
+           href="https://wa.me/447761206205?text=Welcome%20to%20Your%20Hotel%20Stay%F0%9F%8F%A8%0A%0A-Location%0A-Dates%20(DD/MM/YYYY)%20-%20(DD/MM/YYYY)%0A-Number%20of%20Guests">
            Message Us
         </a>
     </div>
 </header>
 
-<!-- Hero Carousel -->
-<section class="hero-slider">
-    <div class="slide active">
-        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Beach">
-    </div>
-    <div class="slide">
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Hotel pool">
-    </div>
-    <div class="slide">
-        <img src="https://images.unsplash.com/photo-1496417263034-38ec4f0b665a" alt="Luxury hotel">
-    </div>
+
+<section class="hero">
+<img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1600&q=80">
+<img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=80">
+<img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1600&q=80">
 
     <div class="hero-text">
         <h1>Luxury Hotels.<br>Up to 50% Off.</h1>
-        <p>Worldwide Concierge Hotel Bookings.</p>
+        <p>Worldwide concierge hotel bookings.</p>
     </div>
 </section>
 
-<script>
-const slides = document.querySelectorAll('.hero-slider .slide');
-let current = 0;
-function nextSlide() {
-    slides[current].classList.remove('active');
-    current = (current + 1) % slides.length;
-    slides[current].classList.add('active');
-}
-setInterval(nextSlide, 4000); // fade every 4s
-</script>
+<!-- DEALS -->
+<section class="container" id="deals">
+    <h2>🔥 Featured Deals</h2>
+
+    <div class="deals">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb">
+            <div class="card-content">
+                <h3>5★ City Luxury Hotel</h3>
+                <div class="location">📍 London, UK</div>
+                <div class="price">
+                    <span class="old">£220</span> → <span class="new">£110</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945">
+            <div class="card-content">
+                <h3>Beachfront Resort</h3>
+                <div class="location">📍 Phuket, Thailand</div>
+                <div class="price">
+                    <span class="old">£180</span> → <span class="new">£90</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d">
+            <div class="card-content">
+                <h3>Mountain Escape</h3>
+                <div class="location">📍 Zermatt, Switzerland</div>
+                <div class="price">
+                    <span class="old">£160</span> → <span class="new">£80</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 YourHotelStay (YHS)</p>
+    <p>Worldwide concierge hotel deals</p>
+</footer>
 
 </body>
-</html>
-
-
 </html>

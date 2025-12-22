@@ -12,7 +12,61 @@ body {
     font-family: Arial, sans-serif;
     background: #f4f6f9;
     color: #222;
+
+    /* Default header for desktop */
+header {
+    background: #0b1c2d;
+    color: white;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
 }
+
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+header .buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    background: white;
+    color: #0b1c2d;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    text-align: center;
+}
+
+/* Mobile view: stack buttons below logo */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header .buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+        margin-top: 15px;
+    }
+
+    .btn {
+        width: 80%; /* optional: make buttons bigger on mobile */
+        text-align: center;
+    }
+}
+
 
 /* HEADER */
 header {
